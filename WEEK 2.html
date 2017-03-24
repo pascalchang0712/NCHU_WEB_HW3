@@ -1,0 +1,136 @@
+<html>
+
+<body>
+	<form id="form1" name="form" method="post">
+		帳號<input type="text" size="20" name="username"><br> 密碼
+		<input type="password" size="20" name="userpass"><br> 興趣
+		<input type="text" size="20" name="hobby"><br>
+		<input type="radio" name="sex" value="male" checked>男
+
+		<select name="subject"><br>
+	<option value="Chinese">國文</option>
+	<option value="English">英文</option>
+	自傳<textarea name="note" cols="50" rows="10"></textarea>
+	<input type="button" value="送出" onClick="appendNode();">
+	<input type="reset" value="重設" onclick ="printChilds(form)">
+	</form>
+
+	<div id ="info"></div>
+	<style>
+		table {
+			font-size: 150%;
+			background-color: SlateGray;
+			margin-top: auto;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: auto;
+
+			border-style: dashed;
+			border-width: 10px;
+			border-color: #FFD382;
+
+			padding-top: auto;
+			padding-left: auto;
+			padding-right: auto;
+			padding-bottom: auto;
+		}
+	</style>
+
+
+
+	<script>
+		function appendNode() {
+		 //新增表格
+		   var objNode = document.getElementById("info");
+		   var table = document.createElement("table");
+		   objNode.appendChild(table);
+		 //新增標題
+			var tr = document.createElement("tr");
+			table.appendChild(tr);
+			var tr2 = document.createElement("tr");
+			table.appendChild(tr2);
+		//新增內容
+			var contentText1 = "NAME";
+			var contentText2 = "SEX";
+			var contentText3 = "HOBBY";
+			var contentText4 = "SUBJECT";
+			var contentText5 = "NOTE";
+			var contentText6 = document.form.username.value;;
+			var contentText7 = document.form.sex.value;
+			var contentText8 = document.form.hobby.value;
+			var contentText9 = document.form.subject.value;
+			var contentText10 =  document.form.note.value;
+
+			var td1 =document.createElement("td");
+			var td2 =document.createElement("td");
+			var td3 =document.createElement("td");
+			var td4 =document.createElement("td");
+			var td5 =document.createElement("td");
+
+			var th1 =document.createElement("th");
+			var th2 =document.createElement("th");
+			var th3 =document.createElement("th");
+			var th4 =document.createElement("th");
+			var th5 =document.createElement("th");
+
+			var objContentTextNode1 = document.createTextNode(contentText1);
+			var objContentTextNode2 = document.createTextNode(contentText2);
+			var objContentTextNode3 = document.createTextNode(contentText3);
+			var objContentTextNode4 = document.createTextNode(contentText4);
+			var objContentTextNode5 = document.createTextNode(contentText5);
+
+			var objContentTextNode6 = document.createTextNode(contentText6);
+			var objContentTextNode7 = document.createTextNode(contentText7);
+			var objContentTextNode8 = document.createTextNode(contentText8);
+			var objContentTextNode9 = document.createTextNode(contentText9);
+			var objContentTextNode10 = document.createTextNode(contentText10);
+
+			tr.appendChild(th1);
+			tr.appendChild(th2);
+			tr.appendChild(th3);
+			tr.appendChild(th4);
+			tr.appendChild(th5);
+
+			tr2.appendChild(td1);
+			tr2.appendChild(td2);
+			tr2.appendChild(td3);
+			tr2.appendChild(td4);
+			tr2.appendChild(td5);
+
+			th1.appendChild(objContentTextNode1);
+			th2.appendChild(objContentTextNode2);
+			th3.appendChild(objContentTextNode3);
+			th4.appendChild(objContentTextNode4);
+			th5.appendChild(objContentTextNode5);
+
+			td1.appendChild(objContentTextNode6);
+			td2.appendChild(objContentTextNode7);
+			td3.appendChild(objContentTextNode8);
+			td4.appendChild(objContentTextNode9);
+			td5.appendChild(objContentTextNode10);
+
+			table.setAttribute("border","2");
+
+
+
+
+
+		}
+		function printChilds(objNode) {
+			var strMsg = "節點名稱 =" + objNode.nodeName + "\n";
+			if (objNode.hasChildNodes()) {
+			var nodeCount = objNode.children.length;
+			strMsg += "子元素數 = " + nodeCount + "\n";
+			for (var i = 0; i < nodeCount; i++)
+         strMsg += "標籤名稱 = " + objNode.children[i].nodeName + "\n";
+      alert(strMsg);
+   }
+}
+
+
+
+
+	</script>
+</body>
+
+</html>
